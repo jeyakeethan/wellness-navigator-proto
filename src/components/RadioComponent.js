@@ -11,7 +11,7 @@ const RadioComponent = React.memo(({ value, onChange, options, label }) => (
           aria-checked={value === option ? 'true' : 'false'}
           role="radio"
           className={`inline-flex flex-grow items-center justify-center rounded-md font-medium transition-all duration-200 px-6 py-3
-            ${value === option ? 'bg-accent text-accent-foreground border-2 border-accent bg-gray' : 'bg-transparent text-lg h-14 border-2 border-transparent'}`}
+            ${value === option ? 'bg-blue-500 text-white text-accent-foreground border-2 border-accent' : 'bg-transparent text-lg h-14 border-2 border-transparent'}`}
           onClick={() => onChange({ target: { value: option } })}
         >
           {option}
