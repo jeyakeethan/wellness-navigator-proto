@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Container } from '@mui/material';
 import WellnessNavigator from './components/WellnessNavigatorComponent';
@@ -65,7 +64,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<WellnessNavigator />} />
-          <Route path="/Navigator" element={<NavigationComponent />} />
+          <Route path="/navigator" element={<NavigationComponent />} />
         </Routes>
       </Container>
     </BrowserRouter>
