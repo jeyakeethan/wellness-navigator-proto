@@ -8,34 +8,41 @@ export interface ProductTableProps {
 
 const ProductTable: React.FC<ProductTableProps> = ({ filteredProducts }) => {
   return (
-    <div className="w-full overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-md">
+    <div className="w-full overflow-x-auto rounded-xl">
       <table className="w-full text-left text-sm text-gray-700">
-        <thead className="bg-gray-100 text-xs uppercase text-gray-500">
+        <thead className="text-xs uppercase text-gray-500">
           <tr>
-            <th className="px-6 py-4 font-semibold">Name</th>
-            <th className="px-6 py-4 font-semibold">Recommendation</th>
-            <th className="px-6 py-4 font-semibold">Strain</th>
-            <th className="px-6 py-4 font-semibold">Type</th>
-            <th className="px-6 py-4 font-semibold">THC</th>
-            <th className="px-6 py-4 font-semibold">CBD</th>
-            <th className="px-6 py-4 font-semibold">Price</th>
+            <th className="h-12 text-left align-middle font-bold text-indigo-600 text-xl p-6">Name</th>
+            <th className="h-12 text-left align-middle font-bold text-indigo-600 text-xl p-6">Strain</th>
+            <th className="h-12 text-left align-middle font-bold text-indigo-600 text-xl p-6">Type</th>
+            <th className="h-12 text-left align-middle font-bold text-indigo-600 text-xl p-6">THC</th>
+            <th className="h-12 text-left align-middle font-bold text-indigo-600 text-xl p-6">CBD</th>
+            <th className="h-12 text-left align-middle font-bold text-indigo-600 text-xl p-6">Price</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200">
-          {filteredProducts.map((product, index) => (
-            <tr
-              key={index}
-              className="transition-colors hover:bg-gray-50"
-            >
-              <td className="px-6 py-4 whitespace-nowrap">{product.name}</td>
-              <td className="px-6 py-4">{product.strain}</td>
-              <td className="px-6 py-4">{product.type}</td>
-              <td className="px-6 py-4">{product.thc}</td>
-              <td className="px-6 py-4">{product.cbd}</td>
-              <td className="px-6 py-4">{product.price}</td>
+        <tbody className="divide-y divide-gray-200 border border-gray-200 bg-white shadow-md">
+          {filteredProducts.length === 0 ? (
+            <tr className="transition-colors hover:bg-gray-50">
+              <td colSpan={6} className="py-4 text-center text-gray-500">
+                No products available now for this condition.
+              </td>
             </tr>
-          ))}
+          ) : (
+            filteredProducts.map((product, index) => (
+              <tr
+                key={index}
+                className="border-b data-[state=selected]:bg-muted transition-all duration-200 bg-blue-50/50 hover:bg-blue-50">
+                <td className="font-medium p-6">{product.name}</td>
+                <td className="p-6 text-lg">{product.strain}</td>
+                <td className="p-6 text-lg">{product.type}</td>
+                <td className="p-6 text-lg">{product.thc}</td>
+                <td className="p-6 text-lg">{product.cbd}</td>
+                <td className="p-6 text-lg">{product.price}</td>
+              </tr>
+            ))
+          )}
         </tbody>
+
       </table>
     </div>
   );

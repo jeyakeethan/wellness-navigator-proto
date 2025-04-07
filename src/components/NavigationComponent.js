@@ -5,20 +5,50 @@ import Slider from './SliderComponent';
 import ProductTable from './ProductTable';
 import { productData } from '../data/productData';
 import { filterProducts } from '../utils/filterProducts';
+import FilterComponent from './FilterComponent';
 
 const NavigationComponent = () => {
   const [ageRange, setAgeRange] = useState('');
   const [ethnicity, setEthnicity] = useState('');
   const [gender, setGender] = useState('');
-  const [weight, setWeight] = useState(70); // Weight slider
+  const [weight, setWeight] = useState(70); // Weight sliderf
   const [height, setHeight] = useState(170); // Height slider
   const [primaryConcern, setPrimaryConcern] = useState('');
   const [secondaryConcern, setSecondaryConcern] = useState('');
+  const [thcLevel, setThcLevel] = useState('');
+  const [cbdLevel, setCbdLevel] = useState('');
+  const [productType, setProductType] = useState('');
+  const [strain, setStrain] = useState('');
 
   const ageOptions = ['18-24', '25-34', '35-44', '45-54', '55+'];
   const ethnicityOptions = ['Asian', 'Caucasian', 'African', 'Hispanic', 'Other'];
   const genderOptions = ['Male', 'Female', 'Other'];
   const concernOptions = ['Acne', 'Anxiety', 'Arthritis', 'chronicPain', 'depression', 'fatique']
+
+  const thcOptions = [
+    { value: 'low', label: 'Low (0-10%)' },
+    { value: 'medium', label: 'Medium (10-20%)' },
+    { value: 'high', label: 'High (>20%)' },
+  ];
+
+  const cbdOptions = [
+    { value: 'low', label: 'Low (0-5%)' },
+    { value: 'medium', label: 'Medium (5-15%)' },
+    { value: 'high', label: 'High (>15%)' },
+  ];
+
+  const productTypeOptions = [
+    { value: 'flower', label: 'Flower' },
+    { value: 'oil', label: 'Oil' },
+    { value: 'edible', label: 'Edible' },
+    { value: 'capsule', label: 'Capsule' },
+  ];
+
+  const strainOptions = [
+    { value: 'indica', label: 'Indica' },
+    { value: 'sativa', label: 'Sativa' },
+    { value: 'hybrid', label: 'Hybrid' },
+  ];
 
   const filteredProducts = filterProducts(productData, {
     ageRange,
@@ -27,7 +57,11 @@ const NavigationComponent = () => {
     gender,
     ethnicity,
     primaryConcern,
-    secondaryConcern
+    secondaryConcern,
+    thcLevel,
+    cbdLevel,
+    productType,
+    strain
   });
 
   // Check if ageRange, ethnicity, and gender are set
@@ -96,7 +130,7 @@ const NavigationComponent = () => {
 
       {/* Show Wellness Information only when demographic details are set */}
       {isDemographicSet && (
-        <div className="container mx-auto mt-32 rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-6 max-w-6xl mx-auto">
+        <div className="container mx-auto mt-10 rounded-lg border bg-card text-card-foreground shadow-sm p-6 mb-6 max-w-6xl mx-auto">
           <h2 className="text-4xl font-extrabold text-left text-black mb-10">Wellness Information</h2>
           <div className="flex flex-col w-full gap-8">
             <div className="flex-1 space-y-8">
@@ -135,6 +169,41 @@ const NavigationComponent = () => {
                     </div>
                   </div>
                 </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                  {/* THC Level Filter */}
+                  <FilterComponent
+                    label="THC Level"
+                    value={thcLevel}
+                    onChange={setThcLevel}
+                    options={thcOptions}
+                  />
+
+                  {/* CBD Level Filter */}
+                  <FilterComponent
+                    label="CBD Level"
+                    value={cbdLevel}
+                    onChange={setCbdLevel}
+                    options={cbdOptions}
+                  />
+
+                  {/* Product Type Filter */}
+                  <FilterComponent
+                    label="Product Type"
+                    value={productType}
+                    onChange={setProductType}
+                    options={productTypeOptions}
+                  />
+
+                  {/* Strain Filter */}
+                  <FilterComponent
+                    label="Strain"
+                    value={strain}
+                    onChange={setStrain}
+                    options={strainOptions}
+                  />
+                </div>
+
 
                 {/* Pass filteredProducts to the ProductTable */}
                 <ProductTable filteredProducts={filteredProducts} />

@@ -63,9 +63,8 @@ function App() {
       {/* Main Content */}
       <Container>
         <Routes>
-          {/* <Route path="/" element={<WellnessNavigator />} /> */}
-          <Route path="/" element={<NavigationComponent />} />
-          {/* <Route path="/navigator" element={<NavigationComponent />} /> */}
+          <Route path="/" element={<WellnessNavigator />} />
+          <Route path="/navigator" element={<NavigationComponent />} />
         </Routes>
       </Container>
     </BrowserRouter>
