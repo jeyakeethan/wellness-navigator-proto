@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/wellness-navigator-proto/static/css/main.980b14b5.css",
-    "main.js": "/wellness-navigator-proto/static/js/main.c74b2937.js",
+    "main.js": "/wellness-navigator-proto/static/js/main.6dcdbb84.js",
     "static/js/453.dcdb77de.chunk.js": "/wellness-navigator-proto/static/js/453.dcdb77de.chunk.js",
     "index.html": "/wellness-navigator-proto/index.html",
     "main.980b14b5.css.map": "/wellness-navigator-proto/static/css/main.980b14b5.css.map",
-    "main.c74b2937.js.map": "/wellness-navigator-proto/static/js/main.c74b2937.js.map",
+    "main.6dcdbb84.js.map": "/wellness-navigator-proto/static/js/main.6dcdbb84.js.map",
     "453.dcdb77de.chunk.js.map": "/wellness-navigator-proto/static/js/453.dcdb77de.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.980b14b5.css",
-    "static/js/main.c74b2937.js"
+    "static/js/main.6dcdbb84.js"
   ]
 }
