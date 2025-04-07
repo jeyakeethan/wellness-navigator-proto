@@ -170,7 +170,7 @@ const NavigationComponent = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   {/* THC Level Filter */}
                   <FilterComponent
                     label="THC Level"
@@ -203,7 +203,6 @@ const NavigationComponent = () => {
                     options={strainOptions}
                   />
                 </div>
-
 
                 {/* Pass filteredProducts to the ProductTable */}
                 <ProductTable filteredProducts={filteredProducts} />
